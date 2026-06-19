@@ -1,0 +1,21 @@
+🔄 Jab Backend se Data Frontend ko jata hai (GET Request)
+Aapne pucha jab backend se data jata hai tab kya hota hai? Tab rasta bilkul ulta (reverse) ho jata hai:
+
+Database se Data Nikla: email.py ke andar aapne query chalayi. Database ne aapko raw data diya.
+
+Model se Schema Transformation: email.py ke andar hi, us raw data ko Response Schema (EmailCampaignResponse) ke container mein pack kiya jata hai taaki woh clean JSON ban jaye.
+
+email.py se Raw Response Nikla: Ab yeh packed JSON data email.py ke function se bahar nikalta hai.
+
+router.py ke raste: Yeh data router.py ke network pipe se guzarta hai.
+
+main.py ke raste: Phir main.py ke bypass se hota hua server se bahar nikal jata hai.
+
+Axios Response: Frontend par Axios us data ko receive karta hai (response.data) aur screen par show kar deta hai.
+
+Easy Summary (Aapke concept ke liye):
+main.py, router.py, aur endpoints/email.py — Yeh aapke backend ki Sarak (Roads/Pipes) hain. Data hamesha inhi pipes ke andar se beh kar aage aur peeche jata hai.
+
+Schema aur Model — Yeh us sarak par chalne wali Gadiyan (Containers) hain. Data in gadiyon ke andar baith kar safar karta hai.
+
+Toh jab Axios aata hai, data router.py aur email.py ke andar se hi guzarta hai, bas us waqt data Schema ke dache (format) mein hota hai, aur jab save hone jata hai toh Model ke dache mein badal jata hai!
